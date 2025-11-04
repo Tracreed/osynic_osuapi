@@ -36,7 +36,7 @@ impl ISearch for GlooSearch {
 
         let mut query_params = Vec::new();
         if let Some(mode) = mode {
-            query_params.push(("mode", mode.to_ruleset()));
+            query_params.push(("mode", mode.to_search_param()));
         }
         if let Some(query) = query {
             query_params.push(("query", query));
