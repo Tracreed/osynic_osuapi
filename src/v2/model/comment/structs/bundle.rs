@@ -20,10 +20,13 @@ use crate::v2::model::comment::structs::comment::Comment;
 use crate::v2::model::comment::structs::meta::CommentableMeta;
 use crate::v2::model::comment::structs::user::User;
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct CommentBundle {
     pub commentable_meta: Option<Vec<CommentableMeta>>,
     pub comments: Vec<Comment>,
+    #[cfg_attr(feature = "wasm", tsify(type = "CursorInCommentBundle | null"))]
     pub cursor: Option<Cursor>,
     pub has_more: bool,
     pub has_more_id: Option<u32>,
@@ -34,9 +37,15 @@ pub struct CommentBundle {
     pub total: Option<u32>,
     pub user_follow: bool,
     pub user_votes: Vec<u32>,
+    #[cfg_attr(feature = "wasm", tsify(type = "UserInCommentBundle[]"))]
     pub users: Vec<User>,
 }
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(
+    feature = "wasm",
+    tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InCommentBundle")
+)]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Cursor {
     pub created_at: Option<String>,

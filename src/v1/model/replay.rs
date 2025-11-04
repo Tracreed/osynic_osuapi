@@ -2,6 +2,8 @@ use serde::{Deserialize, Serialize};
 
 /// 回放数据结构体
 /// Replay data structure
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Replay {
     pub content: String,  // base64编码的回放数据（LZMA流）
@@ -10,6 +12,8 @@ pub struct Replay {
 
 /// 获取回放数据的原始参数
 /// Raw parameters for getting replay data
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetReplayParamsRaw {
     pub k: Option<String>, // API密钥（必需）
@@ -23,6 +27,8 @@ pub struct GetReplayParamsRaw {
 
 /// 获取回放数据的参数
 /// Parameters for getting replay data
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetReplayParams {
     pub api_key: Option<String>,    // API密钥（必需）

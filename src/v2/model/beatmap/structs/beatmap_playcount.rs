@@ -2,14 +2,22 @@ use serde::{Deserialize, Serialize};
 
 use crate::v2::model::beatmapset::structs::beatmapset::Beatmapset;
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct BeatmapPlaycount {
     pub beatmap_id: u32,
     pub count: u32,
+    #[cfg_attr(feature = "wasm", tsify(type = "BeatmapInPlaycount"))]
     pub beatmap: Beatmap,
     pub beatmapset: Beatmapset,
 }
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(
+    feature = "wasm",
+    tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InPlaycount")
+)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Beatmap {
     pub beatmapset_id: u32,

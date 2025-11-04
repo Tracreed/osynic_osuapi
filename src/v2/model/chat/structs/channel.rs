@@ -45,6 +45,8 @@ use serde::{Deserialize, Serialize};
 use crate::v2::model::chat::structs::message::ChatMessage;
 use crate::v2::model::comment::structs::meta::CurrentUserAttributes;
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ChatChannel {
     pub channel_id: u32,

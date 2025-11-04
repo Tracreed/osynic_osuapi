@@ -5,7 +5,7 @@ use crate::v2::model::event::structs::event::Event;
 use crate::v2::model::mode::enums::mode::Mode;
 use crate::v2::model::score::enums::score_type::ScoreType;
 use crate::v2::model::score::structs::score::Score;
-use crate::v2::model::user::structs::kudosu_history::KudosuHisotry;
+use crate::v2::model::user::structs::kudosu_history::KudosuHistory;
 use crate::v2::model::user::structs::user::User;
 use crate::v2::model::user::structs::users::Users;
 
@@ -20,7 +20,7 @@ pub trait IUsers {
         id: u32,
         limit: Option<i32>,
         offset: Option<String>,
-    ) -> impl std::future::Future<Output = Result<Vec<KudosuHisotry>>>;
+    ) -> impl std::future::Future<Output = Result<Vec<KudosuHistory>>>;
     fn get_user_scores(
         &self,
         id: u32,

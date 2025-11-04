@@ -7,7 +7,7 @@ use std::sync::{Arc, Mutex};
 use wasm_bindgen::JsValue;
 use web_sys::console;
 
-#[derive(Clone)]
+#[derive(Clone, Default)]
 pub struct GlooReplay {
     pub api_key: Arc<Mutex<String>>,
     pub proxy_url: Arc<Mutex<String>>,

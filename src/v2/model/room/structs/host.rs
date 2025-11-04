@@ -18,8 +18,11 @@
 // 		}
 // 	},
 
+use crate::v2::model::user::structs::country::Country;
 use serde::{Deserialize, Serialize};
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Host {
     pub avatar_url: String,
@@ -36,10 +39,4 @@ pub struct Host {
     pub profile_colour: Option<String>,
     pub username: String,
     pub country: Option<Country>,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-pub struct Country {
-    pub code: String,
-    pub name: String,
 }

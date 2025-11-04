@@ -1,5 +1,10 @@
 use serde::{Deserialize, Serialize};
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(
+    feature = "wasm",
+    tsify(into_wasm_abi, from_wasm_abi, type_suffix = "Type")
+)]
 #[derive(
     Copy, Clone, Debug, Default, Eq, PartialEq, Hash, Serialize, Deserialize, Ord, PartialOrd,
 )]

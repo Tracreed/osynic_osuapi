@@ -1,8 +1,14 @@
 use serde::{Deserialize, Serialize};
 
-use crate::v2::model::score::enums::country::Country;
-use crate::v2::model::score::enums::cover::Cover;
 use crate::v2::model::score::structs::team::Team;
+use crate::v2::model::user::structs::country::Country;
+use crate::v2::model::user::structs::cover::Cover;
+
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(
+    feature = "wasm",
+    tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InScore")
+)]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct User {
     pub avatar_url: String,
@@ -18,7 +24,10 @@ pub struct User {
     pub pm_friends_only: bool,
     pub profile_colour: Option<String>,
     pub username: String,
+    #[cfg_attr(feature = "wasm", tsify(type = "Country | null"))]
     pub country: Option<Country>,
+    #[cfg_attr(feature = "wasm", tsify(type = "Cover | null"))]
     pub cover: Option<Cover>,
+    #[cfg_attr(feature = "wasm", tsify(type = "Team | null"))]
     pub team: Option<Team>,
 }

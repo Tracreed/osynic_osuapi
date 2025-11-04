@@ -17,7 +17,7 @@ use std::sync::{Arc, Mutex};
 use wasm_bindgen::JsValue;
 use web_sys::console;
 
-#[derive(Clone)]
+#[derive(Clone, Default)]
 pub struct GlooBeatmaps {
     pub o_token: Arc<Mutex<OToken>>,
     pub proxy_url: Arc<Mutex<String>>,
@@ -182,7 +182,7 @@ impl IBeatmaps for GlooBeatmaps {
             query_params.push(("legacy_only", legacy.to_string()));
         }
         if let Some(mode) = mode {
-            query_params.push(("mode", mode.to_string()));
+            query_params.push(("mode", mode.to_ruleset()));
         }
         if let Some(mods) = mods {
             query_params.push(("mods", mods));
@@ -236,7 +236,7 @@ impl IBeatmaps for GlooBeatmaps {
             query_params.push(("legacy_only", legacy.to_string()));
         }
         if let Some(mode) = mode {
-            query_params.push(("mode", mode.to_string()));
+            query_params.push(("mode", mode.to_ruleset()));
         }
         if let Some(ruleset) = ruleset {
             query_params.push(("ruleset", ruleset.to_string()));
@@ -290,7 +290,7 @@ impl IBeatmaps for GlooBeatmaps {
             query_params.push(("legacy_only", legacy.to_string()));
         }
         if let Some(mode) = mode {
-            query_params.push(("mode", mode.to_string()));
+            query_params.push(("mode", mode.to_ruleset()));
         }
         if let Some(mods) = mods {
             query_params.push(("mods", mods));
@@ -341,7 +341,7 @@ impl IBeatmaps for GlooBeatmaps {
 
         let mut query_params = Vec::new();
         if let Some(mode) = mode {
-            query_params.push(("mode", mode.to_string()));
+            query_params.push(("mode", mode.to_ruleset()));
         }
         if let Some(mods) = mods {
             query_params.push(("mods", mods));

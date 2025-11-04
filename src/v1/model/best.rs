@@ -2,6 +2,8 @@ use serde::{Deserialize, Serialize};
 
 /// 用户最佳分数结构体
 /// User best score structure
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct BestScore {
     pub beatmap_id: String,       // 谱面ID
@@ -25,6 +27,8 @@ pub struct BestScore {
 
 /// 获取用户最佳分数的原始参数
 /// Raw parameters for getting user's best scores
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetUserBestParamsRaw {
     pub k: Option<String>,  // API密钥（必需）
@@ -36,6 +40,8 @@ pub struct GetUserBestParamsRaw {
 
 /// 获取用户最佳分数的参数
 /// Parameters for getting user's best scores
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetUserBestParams {
     pub api_key: Option<String>, // API密钥（必需）

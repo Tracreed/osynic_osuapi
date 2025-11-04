@@ -9,7 +9,7 @@ use std::sync::{Arc, Mutex};
 use wasm_bindgen::JsValue;
 use web_sys::console;
 
-#[derive(Clone)]
+#[derive(Clone, Default)]
 pub struct GlooSearch {
     pub o_token: Arc<Mutex<OToken>>,
     pub proxy_url: Arc<Mutex<String>>,
@@ -36,7 +36,7 @@ impl ISearch for GlooSearch {
 
         let mut query_params = Vec::new();
         if let Some(mode) = mode {
-            query_params.push(("mode", mode.to_string()));
+            query_params.push(("mode", mode.to_ruleset()));
         }
         if let Some(query) = query {
             query_params.push(("query", query));

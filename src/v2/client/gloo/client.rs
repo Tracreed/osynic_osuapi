@@ -16,29 +16,63 @@ use super::api::search::GlooSearch;
 use super::api::users::GlooUsers;
 use super::api::wiki::GlooWiki;
 use crate::v2::model::oauth::structs::o_token::OToken;
-
 use std::sync::{Arc, Mutex};
 
-#[derive(Clone)]
+use super::serde::{
+    deserialize_arc_mutex_o_token, deserialize_arc_mutex_string, serialize_arc_mutex_o_token,
+    serialize_arc_mutex_string,
+};
+use serde::{Deserialize, Serialize};
+
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[derive(Clone, Serialize, Deserialize)]
 pub struct OsynicOsuApiV2GlooClient {
+    #[serde(skip)]
     pub oauth: GlooOauth,
+    #[serde(skip)]
     pub beatmapsets: GlooBeatmapsets,
+    #[serde(skip)]
     pub beatmaps: GlooBeatmaps,
+    #[serde(skip)]
     pub changelog: GlooChangelog,
+    #[serde(skip)]
     pub chat: GlooChat,
+    #[serde(skip)]
     pub comments: GlooComments,
+    #[serde(skip)]
     pub events: GlooEvents,
+    #[serde(skip)]
     pub forum: GlooForum,
+    #[serde(skip)]
     pub search: GlooSearch,
+    #[serde(skip)]
     pub matches: GlooMatches,
+    #[serde(skip)]
     pub multiplayer: GlooMultiplayer,
+    #[serde(skip)]
     pub news: GlooNews,
+    #[serde(skip)]
     pub notifications: GlooNotifications,
+    #[serde(skip)]
     pub ranking: GlooRanking,
+    #[serde(skip)]
     pub scores: GlooScores,
+    #[serde(skip)]
     pub users: GlooUsers,
+    #[serde(skip)]
     pub wiki: GlooWiki,
+    #[serde(
+        serialize_with = "serialize_arc_mutex_o_token",
+        deserialize_with = "deserialize_arc_mutex_o_token"
+    )]
+    #[cfg_attr(feature = "wasm", tsify(type = "OToken"))]
     pub o_token: Arc<Mutex<OToken>>,
+    #[serde(
+        serialize_with = "serialize_arc_mutex_string",
+        deserialize_with = "deserialize_arc_mutex_string"
+    )]
+    #[cfg_attr(feature = "wasm", tsify(type = "string"))]
     pub proxy_url: Arc<Mutex<String>>,
 }
 

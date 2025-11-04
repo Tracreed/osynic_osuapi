@@ -23,3 +23,6 @@ pub use crate::v2::interface::{
     multiplayer::IMultiplayer, news::INews, notifications::INotifications, oauth::IOauth,
     ranking::IRanking, scores::IScores, search::ISearch, users::IUsers, wiki::IWiki,
 };
+
+#[cfg(feature = "v1")]
+pub use crate::v1::model::user::{GetUserParams, GetUserParamsRaw, User, UserEvent};

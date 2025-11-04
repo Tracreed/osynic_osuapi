@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct OToken {
     pub access_token: String,

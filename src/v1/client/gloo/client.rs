@@ -1,18 +1,38 @@
+use std::sync::{Arc, Mutex};
+
 use super::api::beatmap::GlooBeatmap;
 use super::api::multiplayer::GlooMultiplayer;
 use super::api::replay::GlooReplay;
 use super::api::scores::GlooScores;
 use super::api::user::GlooUser;
-use std::sync::{Arc, Mutex};
+use super::serde::{deserialize_arc_mutex_string, serialize_arc_mutex_string};
+use serde::{Deserialize, Serialize};
 
-#[derive(Clone)]
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[derive(Clone, Serialize, Deserialize)]
 pub struct OsynicOsuApiV1GlooClient {
+    #[serde(skip)]
     pub beatmap: GlooBeatmap,
+    #[serde(skip)]
     pub user: GlooUser,
+    #[serde(skip)]
     pub multiplayer: GlooMultiplayer,
+    #[serde(skip)]
     pub replay: GlooReplay,
+    #[serde(skip)]
     pub score: GlooScores,
+    #[serde(
+        serialize_with = "serialize_arc_mutex_string",
+        deserialize_with = "deserialize_arc_mutex_string"
+    )]
+    #[cfg_attr(feature = "wasm", tsify(type = "string"))]
     pub api_key: Arc<Mutex<String>>,
+    #[serde(
+        serialize_with = "serialize_arc_mutex_string",
+        deserialize_with = "deserialize_arc_mutex_string"
+    )]
+    #[cfg_attr(feature = "wasm", tsify(type = "string"))]
     pub proxy_url: Arc<Mutex<String>>,
 }
 

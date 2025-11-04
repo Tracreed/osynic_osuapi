@@ -8,7 +8,7 @@ use crate::v2::model::mode::enums::mode::Mode;
 use crate::v2::model::oauth::structs::o_token::OToken;
 use crate::v2::model::score::enums::score_type::ScoreType;
 use crate::v2::model::score::structs::score::Score;
-use crate::v2::model::user::structs::kudosu_history::KudosuHisotry;
+use crate::v2::model::user::structs::kudosu_history::KudosuHistory;
 use crate::v2::model::user::structs::user::User;
 use crate::v2::model::user::structs::users::Users;
 use gloo_net::http::Request;
@@ -16,7 +16,7 @@ use std::sync::{Arc, Mutex};
 use wasm_bindgen::JsValue;
 use web_sys::console;
 
-#[derive(Clone)]
+#[derive(Clone, Default)]
 pub struct GlooUsers {
     pub o_token: Arc<Mutex<OToken>>,
     pub proxy_url: Arc<Mutex<String>>,
@@ -38,7 +38,7 @@ impl IUsers for GlooUsers {
 
         let mut query_params = Vec::new();
         if let Some(mode) = mode {
-            query_params.push(("mode", mode.to_string()));
+            query_params.push(("mode", mode.to_ruleset()));
         }
         if let Some(key) = key {
             query_params.push(("key", key));
@@ -68,7 +68,7 @@ impl IUsers for GlooUsers {
         id: u32,
         limit: Option<i32>,
         offset: Option<String>,
-    ) -> Result<Vec<KudosuHisotry>> {
+    ) -> Result<Vec<KudosuHistory>> {
         console::log_1(&JsValue::from_str("GlooUsers get_user_kudosu"));
 
         let access_token = {
@@ -104,7 +104,7 @@ impl IUsers for GlooUsers {
             .await?;
 
         let response = check_res(res)?;
-        let kudosu_history: Vec<KudosuHisotry> = response.json().await?;
+        let kudosu_history: Vec<KudosuHistory> = response.json().await?;
         Ok(kudosu_history)
     }
 
@@ -319,7 +319,7 @@ impl IUsers for GlooUsers {
 
         let mut query_params = Vec::new();
         if let Some(mode) = mode {
-            query_params.push(("mode", mode.to_string()));
+            query_params.push(("mode", mode.to_ruleset()));
         }
         if let Some(key) = key {
             query_params.push(("key", key));
@@ -364,7 +364,7 @@ impl IUsers for GlooUsers {
 
         let mut query_params = Vec::new();
         if let Some(mode) = mode {
-            query_params.push(("mode", mode.to_string()));
+            query_params.push(("mode", mode.to_ruleset()));
         }
         if let Some(key) = key {
             query_params.push(("key", key));

@@ -39,6 +39,8 @@
 
 use serde::{Deserialize, Serialize};
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ChatMessage {
     pub channel_id: u32,
@@ -53,6 +55,8 @@ pub struct ChatMessage {
     pub sender: Option<Sender>,
 }
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Sender {
     pub id: u32,

@@ -5,6 +5,8 @@ use crate::v2::model::wiki::WikiPage;
 
 use serde::{Deserialize, Serialize};
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct BeatmapsetsSearchResponse {
     pub beatmapsets: Vec<Beatmapset>,
@@ -12,28 +14,41 @@ pub struct BeatmapsetsSearchResponse {
     pub recommended_difficulty: Option<String>,
     pub error: Option<String>,
     pub total: u32,
+    #[cfg_attr(feature = "wasm", tsify(type = "CursorInSearch | null"))]
     pub cursor: Option<Cursor>,
     pub cursor_string: Option<String>,
 }
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct SearchResponse {
     pub user: Option<UserSearchResponse>,
     pub wiki_page: Option<WikiPageSearchResponse>,
 }
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct UserSearchResponse {
+    #[cfg_attr(feature = "wasm", tsify(type = "UserInSearch[]"))]
     pub data: Vec<User>,
     pub total: u32,
 }
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct WikiPageSearchResponse {
     pub data: Vec<WikiPage>,
     pub total: u32,
 }
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(
+    feature = "wasm",
+    tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InSearch")
+)]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct User {
     pub avatar_url: String,

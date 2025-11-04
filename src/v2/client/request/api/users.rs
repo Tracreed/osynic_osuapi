@@ -8,7 +8,7 @@ use crate::v2::model::mode::enums::mode::Mode;
 use crate::v2::model::oauth::structs::o_token::OToken;
 use crate::v2::model::score::enums::score_type::ScoreType;
 use crate::v2::model::score::structs::score::Score;
-use crate::v2::model::user::structs::kudosu_history::KudosuHisotry;
+use crate::v2::model::user::structs::kudosu_history::KudosuHistory;
 use crate::v2::model::user::structs::user::User;
 use crate::v2::model::user::structs::users::Users;
 
@@ -92,7 +92,7 @@ impl IUsers for ReqwestUsers {
         id: u32,
         limit: Option<i32>,
         offset: Option<String>,
-    ) -> Result<Vec<KudosuHisotry>> {
+    ) -> Result<Vec<KudosuHistory>> {
         println!("ReqwestUsers get_user_kudosu");
 
         let access_token = {
@@ -119,7 +119,7 @@ impl IUsers for ReqwestUsers {
 
         let response = check_res(res)?;
 
-        let kudosu_history: Vec<KudosuHisotry> = response.json().await?;
+        let kudosu_history: Vec<KudosuHistory> = response.json().await?;
 
         Ok(kudosu_history)
     }

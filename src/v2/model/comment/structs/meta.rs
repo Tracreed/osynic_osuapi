@@ -9,6 +9,8 @@
 
 use serde::{Deserialize, Serialize};
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct CommentableMeta {
     pub current_user_attributes: Option<CurrentUserAttributes>,
@@ -39,6 +41,8 @@ pub struct CommentableMeta {
 // can_message_error 	string? 	Reason messages cannot be sent to this channel
 // last_read_id 	integer 	message_id of last message read.
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct CurrentUserAttributes {
     pub can_new_comment_reason: Option<String>,

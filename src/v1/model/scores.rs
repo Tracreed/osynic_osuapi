@@ -2,6 +2,11 @@ use serde::{Deserialize, Serialize};
 
 /// 谱面分数结构体
 /// Beatmap score structure
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(
+    feature = "wasm",
+    tsify(into_wasm_abi, from_wasm_abi, type_suffix = "V1")
+)]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Score {
     pub score_id: String,         // 分数ID
@@ -25,6 +30,8 @@ pub struct Score {
 
 /// 获取谱面分数的原始参数
 /// Raw parameters for getting beatmap scores
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetScoresParamsRaw {
     pub k: Option<String>,  // API密钥（必需）
@@ -38,6 +45,8 @@ pub struct GetScoresParamsRaw {
 
 /// 获取谱面分数的参数
 /// Parameters for getting beatmap scores
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetScoresParams {
     pub api_key: Option<String>,    // API密钥（必需）

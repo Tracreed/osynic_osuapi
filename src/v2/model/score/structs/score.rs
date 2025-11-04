@@ -11,6 +11,8 @@ use crate::v2::model::score::structs::current_user_attributes::CurrentUserAttrib
 use crate::v2::model::score::structs::statistics::Statistics;
 use crate::v2::model::score::structs::user::User;
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Score {
     pub accuracy: f64,
@@ -24,15 +26,18 @@ pub struct Score {
     pub passed: bool,
     pub perfect: bool,
     pub pp: f64,
+    #[cfg_attr(feature = "wasm", tsify(type = "RankType"))]
     pub rank: Rank,
     pub replay: bool,
     pub score: u32,
+    #[cfg_attr(feature = "wasm", tsify(type = "StatisticsInScore"))]
     pub statistics: Statistics,
     #[serde(rename = "type")]
     pub ranking_type: String,
     pub user_id: u32,
     pub current_user_attributes: CurrentUserAttributes,
     pub beatmap: Option<Beatmap>,
+    #[cfg_attr(feature = "wasm", tsify(type = "UserInScore | null"))]
     pub user: Option<User>,
 
     // ------- In Get User Scores ------

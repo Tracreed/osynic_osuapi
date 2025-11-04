@@ -16,6 +16,8 @@
 
 use serde::{Deserialize, Serialize};
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ForumPost {
     pub created_at: String,
@@ -26,9 +28,15 @@ pub struct ForumPost {
     pub id: u64,
     pub topic_id: u64,
     pub user_id: u64,
+    #[cfg_attr(feature = "wasm", tsify(type = "BodyInForumPost"))]
     pub body: Option<Body>,
 }
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(
+    feature = "wasm",
+    tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InForumPost")
+)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Body {
     pub html: String,

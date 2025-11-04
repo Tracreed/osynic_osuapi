@@ -5,6 +5,9 @@ pub mod v1;
 #[cfg(feature = "v2")]
 pub mod v2;
 
+#[cfg(all(feature = "v1", feature = "v2", feature = "wasm"))]
+pub mod wasm;
+
 pub mod error;
 pub mod utils;
 

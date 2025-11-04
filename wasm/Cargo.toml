@@ -1,0 +1,23 @@
+[package]
+name = "osynic-osuapi"
+version = "0.1.2"
+edition = "2024"
+rust-version = "1.85.0"
+authors = [
+    "Hako Chest <zoneherobrine@gmail.com>"
+]
+description = "High performance, well-structured, extensible Rust osu! API client. Supports both WASM and native environments."
+keywords = ["osynic", "osu", "osuapi", "wasm"]
+categories = ["web-programming","wasm"]
+license = "MIT"
+documentation = "https://docs.rs/osynic_osuapi"
+repository = "https://github.com/islatri/osynic_osuapi"
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+osynic_osuapi = { path = "..", features = ["v1","v2","wasm"], default-features = false }

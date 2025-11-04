@@ -1,25 +1,27 @@
 use serde::{Deserialize, Serialize};
 
 use crate::v2::model::matches::structs::matches::Match;
-// use crate::v2::model::user::structs::user::User;
+use crate::v2::model::score::structs::multiplayer::multiplayer_scores::Params;
+use crate::v2::model::user::structs::country::Country;
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetMatchesListingResponse {
     pub matches: Vec<Match>,
     pub params: Params,
+    #[cfg_attr(feature = "wasm", tsify(type = "CursorInMatches"))]
     pub cursor: Cursor,
     pub cursor_string: String,
 }
-
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(
+    feature = "wasm",
+    tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InMatches")
+)]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Cursor {
     pub match_id: u64,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-pub struct Params {
-    pub limit: u32,
-    pub sort: String,
 }
 
 // {
@@ -42,17 +44,22 @@ pub struct Params {
 //     "cursor_string": "eyJtYXRjaF9pZCI6MTE0NDI4Njg1fQ"
 // }
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetMatchResponse {
     #[serde(rename = "match")]
     pub matchh: Match,
     pub events: Vec<Event>,
+    #[cfg_attr(feature = "wasm", tsify(type = "UserInMatches[]"))]
     pub users: Vec<User>,
     pub first_event_id: u64,
     pub latest_event_id: u64,
     pub current_game_id: Option<u64>,
 }
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Event {
     pub id: u64,
@@ -61,12 +68,19 @@ pub struct Event {
     pub user_id: Option<u64>,
 }
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Detail {
     #[serde(rename = "type")]
     pub event_type: String,
 }
 
+#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(
+    feature = "wasm",
+    tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InMatches")
+)]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct User {
     pub avatar_url: String,
@@ -82,13 +96,8 @@ pub struct User {
     pub pm_friends_only: bool,
     pub profile_colour: Option<String>,
     pub username: String,
+    #[cfg_attr(feature = "wasm", tsify(type = "Country"))]
     pub country: Country,
-}
-
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-pub struct Country {
-    pub code: String,
-    pub name: String,
 }
 
 // {

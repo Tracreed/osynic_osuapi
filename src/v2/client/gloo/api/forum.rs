@@ -14,7 +14,7 @@ use std::sync::{Arc, Mutex};
 use wasm_bindgen::JsValue;
 use web_sys::console;
 
-#[derive(Clone)]
+#[derive(Clone, Default)]
 pub struct GlooForum {
     pub o_token: Arc<Mutex<OToken>>,
     pub proxy_url: Arc<Mutex<String>>,
