@@ -105,13 +105,6 @@ pub fn main() {
     console_error_panic_hook::set_once();
 }
 
-// 当不使用 export 特性时，提供可手动调用的函数
-#[cfg(not(feature = "export"))]
-#[wasm_bindgen]
-pub fn init_panic_hook() {
-    console_error_panic_hook::set_once();
-}
-
 //////////////////////////////////////////////////////////////////////////
 /// OsynicOsuApiV1GlooClient
 /// - get_beatmaps
