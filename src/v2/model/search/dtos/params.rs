@@ -9,8 +9,8 @@ use crate::v2::model::search::enums::sort::Sort;
 
 use serde::{Deserialize, Serialize};
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct BeatmapsetsSearchParams {
     pub query: Option<String>,
@@ -18,9 +18,9 @@ pub struct BeatmapsetsSearchParams {
     pub mode: Option<Mode>,
     pub categories: Option<Categories>,
     pub explicit_content: Option<bool>,
-    #[cfg_attr(feature = "wasm", tsify(type = "GenreType | null"))]
+    #[cfg_attr(feature = "export", tsify(type = "GenreType | null"))]
     pub genre: Option<Genre>,
-    #[cfg_attr(feature = "wasm", tsify(type = "LanguageType | null"))]
+    #[cfg_attr(feature = "export", tsify(type = "LanguageType | null"))]
     pub language: Option<Language>,
     pub extra: Option<Vec<Extra>>,
     pub rank_achieved: Option<Vec<RankAchieved>>,
@@ -165,8 +165,8 @@ impl BeatmapsetsSearchParams {
 }
 
 // 留作纪念
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct BeatmapsetsSearchParamsRaw {
     pub q: Option<String>,
@@ -174,9 +174,9 @@ pub struct BeatmapsetsSearchParamsRaw {
     pub m: Option<Mode>,
     pub s: Option<Categories>,
     pub nsfw: Option<bool>,
-    #[cfg_attr(feature = "wasm", tsify(type = "GenreType | null"))]
+    #[cfg_attr(feature = "export", tsify(type = "GenreType | null"))]
     pub g: Option<Genre>,
-    #[cfg_attr(feature = "wasm", tsify(type = "LanguageType | null"))]
+    #[cfg_attr(feature = "export", tsify(type = "LanguageType | null"))]
     pub l: Option<Language>,
     pub e: Option<Vec<Extra>>,
     pub r: Option<Vec<RankAchieved>>,

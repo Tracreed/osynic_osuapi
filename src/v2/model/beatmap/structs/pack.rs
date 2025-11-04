@@ -19,8 +19,8 @@ use serde::{Deserialize, Serialize};
 
 use crate::v2::model::beatmapset::structs::beatmapset::Beatmapset;
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct BeatmapPack {
     /// The author of the beatmap pack.
@@ -43,8 +43,8 @@ pub struct BeatmapPack {
     pub user_completion_data: Option<UserCompletionData>,
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct UserCompletionData {
     /// IDs of beatmapsets completed by the user (according to the requirements of the pack)

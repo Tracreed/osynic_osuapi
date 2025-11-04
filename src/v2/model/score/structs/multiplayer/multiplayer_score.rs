@@ -78,8 +78,8 @@ use crate::v2::model::user::structs::country::Country;
 use crate::v2::model::user::structs::cover::Cover;
 use serde::{Deserialize, Serialize};
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct MultiplayerScore {
     pub playlist_item_id: u32,
@@ -89,10 +89,10 @@ pub struct MultiplayerScore {
     pub preserve: bool,
     pub processed: bool,
     pub ranked: bool,
-    #[cfg_attr(feature = "wasm", tsify(type = "StatisticsInMultiplayerScore"))]
+    #[cfg_attr(feature = "export", tsify(type = "StatisticsInMultiplayerScore"))]
     pub maximum_statistics: Statistics,
     pub mods: Vec<Mod>,
-    #[cfg_attr(feature = "wasm", tsify(type = "StatisticsInMultiplayerScore"))]
+    #[cfg_attr(feature = "export", tsify(type = "StatisticsInMultiplayerScore"))]
     pub statistics: Statistics,
     pub total_score_without_mods: u32,
     pub beatmap_id: u32,
@@ -118,11 +118,11 @@ pub struct MultiplayerScore {
     pub total_score: u64,
     pub replay: bool,
     pub current_user_attributes: CurrentUserAttributes,
-    #[cfg_attr(feature = "wasm", tsify(type = "UserInMultiplayerScore | null"))]
+    #[cfg_attr(feature = "export", tsify(type = "UserInMultiplayerScore | null"))]
     pub user: User,
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
     feature = "wasm",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InMultiplayerScore")
@@ -140,21 +140,21 @@ pub struct Statistics {
     pub small_tick_miss: Option<u32>,
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Mod {
     pub acronym: String,
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct CurrentUserAttributes {
     pub pin: Option<String>,
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
     feature = "wasm",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InMultiplayerScore")
@@ -174,8 +174,8 @@ pub struct User {
     pub pm_friends_only: bool,
     pub profile_colour: Option<String>,
     pub username: String,
-    #[cfg_attr(feature = "wasm", tsify(type = "Country"))]
+    #[cfg_attr(feature = "export", tsify(type = "Country"))]
     pub country: Country,
-    #[cfg_attr(feature = "wasm", tsify(type = "Cover"))]
+    #[cfg_attr(feature = "export", tsify(type = "Cover"))]
     pub cover: Cover,
 }

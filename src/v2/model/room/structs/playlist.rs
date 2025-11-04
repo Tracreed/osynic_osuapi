@@ -16,8 +16,8 @@ use crate::v2::model::beatmapset::structs::covers::Covers;
 
 use super::playlist_mod::PlaylistMod;
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Playlist {
     pub id: u32,
@@ -34,7 +34,7 @@ pub struct Playlist {
     pub beatmap: Option<Beatmap>,
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
     feature = "wasm",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InPlaylist")
@@ -49,11 +49,11 @@ pub struct Beatmap {
     pub total_length: u32,
     pub user_id: u32,
     pub version: String,
-    #[cfg_attr(feature = "wasm", tsify(type = "BeatmapsetInPlaylist"))]
+    #[cfg_attr(feature = "export", tsify(type = "BeatmapsetInPlaylist"))]
     pub beatmapset: Beatmapset,
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
     feature = "wasm",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InPlaylist")
@@ -62,7 +62,7 @@ pub struct Beatmap {
 pub struct Beatmapset {
     pub artist: String,
     pub artist_unicode: String,
-    #[cfg_attr(feature = "wasm", tsify(type = "Covers"))]
+    #[cfg_attr(feature = "export", tsify(type = "Covers"))]
     pub covers: Covers,
     pub creator: String,
     pub favourite_count: u32,
@@ -129,8 +129,8 @@ pub struct Beatmapset {
 // 	"ruleset_ids": [0]
 // }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct PlaylistItemStats {
     pub count_active: u32,

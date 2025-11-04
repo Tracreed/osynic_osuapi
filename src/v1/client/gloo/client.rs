@@ -8,8 +8,8 @@ use super::api::user::GlooUser;
 use super::serde::{deserialize_arc_mutex_string, serialize_arc_mutex_string};
 use serde::{Deserialize, Serialize};
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Clone, Serialize, Deserialize)]
 pub struct OsynicOsuApiV1GlooClient {
     #[serde(skip)]
@@ -26,13 +26,13 @@ pub struct OsynicOsuApiV1GlooClient {
         serialize_with = "serialize_arc_mutex_string",
         deserialize_with = "deserialize_arc_mutex_string"
     )]
-    #[cfg_attr(feature = "wasm", tsify(type = "string"))]
+    #[cfg_attr(feature = "export", tsify(type = "string"))]
     pub api_key: Arc<Mutex<String>>,
     #[serde(
         serialize_with = "serialize_arc_mutex_string",
         deserialize_with = "deserialize_arc_mutex_string"
     )]
-    #[cfg_attr(feature = "wasm", tsify(type = "string"))]
+    #[cfg_attr(feature = "export", tsify(type = "string"))]
     pub proxy_url: Arc<Mutex<String>>,
 }
 

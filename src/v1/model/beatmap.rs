@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
     feature = "wasm",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "V1")
@@ -49,8 +49,8 @@ pub struct Beatmap {
     pub audio_unavailable: String, // If the audio for this beatmap is unavailable (DMCA takedown, etc.)
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetBeatmapsParamsRaw {
     pub k: Option<String>,     // API key (required)
@@ -66,8 +66,8 @@ pub struct GetBeatmapsParamsRaw {
     pub mods: Option<u32>,     // Mods that apply to the beatmap
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetBeatmapsParams {
     pub api_key: Option<String>,   // API key (required)

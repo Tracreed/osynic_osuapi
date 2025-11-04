@@ -34,16 +34,16 @@
 
 use serde::{Deserialize, Serialize};
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct TopicListing {
     pub topics: Vec<ForumTopic>,
     pub cursor_string: String,
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ForumTopic {
     pub created_at: String,
@@ -62,8 +62,8 @@ pub struct ForumTopic {
     pub user_id: u64,
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Poll {
     pub allow_vote_change: bool,
@@ -73,22 +73,22 @@ pub struct Poll {
     pub max_votes: u64,
     pub options: Vec<PollOption>,
     pub started_at: String,
-    #[cfg_attr(feature = "wasm", tsify(type = "BodyInForumTopic"))]
+    #[cfg_attr(feature = "export", tsify(type = "BodyInForumTopic"))]
     pub title: Body,
     pub total_vote_count: u64,
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct PollOption {
     pub id: u64,
-    #[cfg_attr(feature = "wasm", tsify(type = "BodyInForumTopic"))]
+    #[cfg_attr(feature = "export", tsify(type = "BodyInForumTopic"))]
     pub text: Body,
     pub vote_count: Option<u64>,
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
     feature = "wasm",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InForumTopic")

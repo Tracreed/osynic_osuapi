@@ -12,8 +12,8 @@ use serde::{Deserialize, Serialize};
 
 use crate::v2::model::score::structs::multiplayer::multiplayer_score::MultiplayerScore;
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct MultiplayerScores {
     pub cursor_string: Option<String>,
@@ -21,11 +21,11 @@ pub struct MultiplayerScores {
     pub scores: Vec<MultiplayerScore>,
     pub total: Option<u32>,
     pub user_score: Option<MultiplayerScore>,
-    #[cfg_attr(feature = "wasm", tsify(type = "CursorInMultiplayerScores | null"))]
+    #[cfg_attr(feature = "export", tsify(type = "CursorInMultiplayerScores | null"))]
     pub cursor: Option<Cursor>,
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
     feature = "wasm",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InMultiplayerScores")
@@ -37,16 +37,16 @@ pub struct Cursor {
 }
 
 // wried docs...
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Params {
     pub limit: Option<u32>,
     pub sort: Option<String>,
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct MultiplayerScoresAround {
     pub higher: MultiplayerScores,

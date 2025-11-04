@@ -23,8 +23,8 @@ use crate::v2::model::room::structs::playlist::Playlist;
 use crate::v2::model::room::structs::playlist::PlaylistItemStats;
 use crate::v2::model::room::structs::recent_participant::RecentParticipant;
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Room {
     pub id: u32,

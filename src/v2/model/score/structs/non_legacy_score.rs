@@ -5,15 +5,15 @@ use super::non_legacy::statistics::Statistics;
 use crate::v2::model::score::structs::current_user_attributes::CurrentUserAttributes;
 use crate::v2::model::score::structs::user::User;
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct NonLegacyScore {
     pub classic_total_score: u64,
     pub preserve: bool,
     pub processed: bool,
     pub ranked: bool,
-    #[cfg_attr(feature = "wasm", tsify(type = "StatisticsInScore"))]
+    #[cfg_attr(feature = "export", tsify(type = "StatisticsInScore"))]
     pub maximum_statistics: Statistics,
     pub mods: Vec<AcronymMod>,
     pub statistics: Statistics,
@@ -40,6 +40,6 @@ pub struct NonLegacyScore {
     pub total_score: u64,
     pub replay: bool,
     pub current_user_attributes: Option<CurrentUserAttributes>,
-    #[cfg_attr(feature = "wasm", tsify(type = "UserInScore"))]
+    #[cfg_attr(feature = "export", tsify(type = "UserInScore"))]
     pub user: Option<User>,
 }

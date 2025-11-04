@@ -2,7 +2,7 @@ use serde::{Deserialize, Deserializer, Serialize};
 
 /// 多人游戏玩家分数结构体
 /// Multiplayer player score structure
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
     feature = "wasm",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "V1")
@@ -28,8 +28,8 @@ pub struct MultiplayerScore {
 
 /// 多人游戏单局游戏结构体
 /// Multiplayer game structure
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MultiplayerGame {
     pub game_id: String,               // 游戏ID
@@ -46,8 +46,8 @@ pub struct MultiplayerGame {
 
 /// 多人游戏匹配结构体
 /// Multiplayer match structure
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct MultiplayerMatch {
     pub match_id: String,         // 匹配ID
@@ -58,8 +58,8 @@ pub struct MultiplayerMatch {
 
 /// 多人游戏响应结构体
 /// Multiplayer response structure
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MultiplayerResponse {
     #[serde(rename = "match", deserialize_with = "deserialize_match")]
@@ -95,8 +95,8 @@ where
 
 /// 获取多人游戏信息的原始参数
 /// Raw parameters for getting multiplayer match information
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetMatchParamsRaw {
     pub k: Option<String>,  // API密钥（必需）
@@ -105,8 +105,8 @@ pub struct GetMatchParamsRaw {
 
 /// 获取多人游戏信息的参数
 /// Parameters for getting multiplayer match information
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetMatchParams {
     pub api_key: Option<String>,  // API密钥（必需）

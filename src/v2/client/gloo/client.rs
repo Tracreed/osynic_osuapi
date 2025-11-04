@@ -24,8 +24,8 @@ use super::serde::{
 };
 use serde::{Deserialize, Serialize};
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Clone, Serialize, Deserialize)]
 pub struct OsynicOsuApiV2GlooClient {
     #[serde(skip)]
@@ -66,13 +66,13 @@ pub struct OsynicOsuApiV2GlooClient {
         serialize_with = "serialize_arc_mutex_o_token",
         deserialize_with = "deserialize_arc_mutex_o_token"
     )]
-    #[cfg_attr(feature = "wasm", tsify(type = "OToken"))]
+    #[cfg_attr(feature = "export", tsify(type = "OToken"))]
     pub o_token: Arc<Mutex<OToken>>,
     #[serde(
         serialize_with = "serialize_arc_mutex_string",
         deserialize_with = "deserialize_arc_mutex_string"
     )]
-    #[cfg_attr(feature = "wasm", tsify(type = "string"))]
+    #[cfg_attr(feature = "export", tsify(type = "string"))]
     pub proxy_url: Arc<Mutex<String>>,
 }
 

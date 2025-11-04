@@ -7,8 +7,8 @@ use crate::v2::model::beatmapset::structs::beatmapset::Beatmapset;
 use super::extended::failtimes::Failtimes;
 use super::extended::owner::Owner;
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Beatmap {
     pub beatmapset_id: u32,

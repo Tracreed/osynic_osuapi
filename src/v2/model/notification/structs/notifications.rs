@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Notification {
     pub id: u64,
@@ -11,11 +11,11 @@ pub struct Notification {
     pub object_id: u64,
     pub source_user_id: u64,
     pub is_read: bool,
-    #[cfg_attr(feature = "wasm", tsify(type = "DetailsInNotification"))]
+    #[cfg_attr(feature = "export", tsify(type = "DetailsInNotification"))]
     pub details: Details,
 }
 
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
     feature = "wasm",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InNotification")

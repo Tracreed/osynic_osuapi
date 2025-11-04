@@ -2,8 +2,8 @@ use serde::{Deserialize, Serialize};
 
 /// 用户最近游玩记录结构体
 /// User recent plays structure
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct RecentPlay {
     pub beatmap_id: String,   // 谱面ID
@@ -24,8 +24,8 @@ pub struct RecentPlay {
 
 /// 获取用户最近游玩记录的原始参数
 /// Raw parameters for getting user's recent plays
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetUserRecentParamsRaw {
     pub k: Option<String>,  // API密钥（必需）
@@ -37,8 +37,8 @@ pub struct GetUserRecentParamsRaw {
 
 /// 获取用户最近游玩记录的参数
 /// Parameters for getting user's recent plays
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetUserRecentParams {
     pub api_key: Option<String>, // API密钥（必需）

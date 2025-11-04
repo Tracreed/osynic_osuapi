@@ -2,8 +2,8 @@ use serde::{Deserialize, Serialize};
 
 /// 用户事件结构体
 /// User event structure
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct UserEvent {
     pub display_html: String,  // HTML 显示内容
@@ -15,7 +15,7 @@ pub struct UserEvent {
 
 /// 用户信息结构体
 /// User information structure
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
     feature = "wasm",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "V1")
@@ -43,14 +43,14 @@ pub struct User {
     pub country: String,              // 国家代码，使用ISO3166-1 alpha-2国家代码命名
     pub total_seconds_played: String, // 总游玩时间（秒）
     pub pp_country_rank: String,      // 国家内PP排名
-    #[cfg_attr(feature = "wasm", tsify(type = "UserEvent"))]
+    #[cfg_attr(feature = "export", tsify(type = "UserEvent"))]
     pub events: Vec<UserEvent>, // 该用户的事件列表
 }
 
 /// 获取用户信息的原始参数
 /// Raw parameters for getting user information
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetUserParamsRaw {
     pub k: Option<String>,      // API密钥（必需）
@@ -62,8 +62,8 @@ pub struct GetUserParamsRaw {
 
 /// 获取用户信息的参数
 /// Parameters for getting user information
-#[cfg_attr(feature = "wasm", derive(tsify::Tsify))]
-#[cfg_attr(feature = "wasm", tsify(into_wasm_abi, from_wasm_abi))]
+#[cfg_attr(feature = "export", derive(tsify::Tsify))]
+#[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GetUserParams {
     pub api_key: Option<String>, // API密钥（必需）
