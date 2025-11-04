@@ -124,7 +124,7 @@ pub struct MultiplayerScore {
 
 #[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
-    feature = "wasm",
+    feature = "export",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InMultiplayerScore")
 )]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -156,7 +156,7 @@ pub struct CurrentUserAttributes {
 
 #[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
-    feature = "wasm",
+    feature = "export",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InMultiplayerScore")
 )]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]

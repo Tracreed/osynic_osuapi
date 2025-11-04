@@ -18,7 +18,7 @@ pub struct BaseEvent {
 // 主事件枚举
 #[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
-    feature = "wasm",
+    feature = "export",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "Type")
 )]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -76,7 +76,7 @@ impl Event {
 // 辅助结构体定义...
 #[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
-    feature = "wasm",
+    feature = "export",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InEvent")
 )]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -87,7 +87,7 @@ pub struct Beatmap {
 
 #[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
-    feature = "wasm",
+    feature = "export",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InEvent")
 )]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -113,7 +113,7 @@ pub struct Achievement {
 
 #[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
-    feature = "wasm",
+    feature = "export",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InEvent")
 )]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]

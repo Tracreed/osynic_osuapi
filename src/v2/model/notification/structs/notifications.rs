@@ -17,7 +17,7 @@ pub struct Notification {
 
 #[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
-    feature = "wasm",
+    feature = "export",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "InNotification")
 )]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]

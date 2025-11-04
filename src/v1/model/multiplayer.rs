@@ -4,7 +4,7 @@ use serde::{Deserialize, Deserializer, Serialize};
 /// Multiplayer player score structure
 #[cfg_attr(feature = "export", derive(tsify::Tsify))]
 #[cfg_attr(
-    feature = "wasm",
+    feature = "export",
     tsify(into_wasm_abi, from_wasm_abi, type_suffix = "V1")
 )]
 #[derive(Debug, Clone, Serialize, Deserialize)]
