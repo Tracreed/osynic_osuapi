@@ -39,7 +39,7 @@
 
 # 🧻 [API体验网站](https://osynic-osuapi.deno.dev/)
 
-[![OsynicOsuapiCN.png](https://s2.loli.net/2025/05/15/Ww1hovEL4PmKdD6.png)](https://osynic-osuapi.deno.dev/)
+[![OSUAPIV1CN.png](https://s2.loli.net/2025/11/05/ahR96WKd5u1UrVy.png)](https://osynic-osuapi.deno.dev/)
 
 # ✨ 特性
 

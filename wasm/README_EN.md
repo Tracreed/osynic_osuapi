@@ -39,7 +39,7 @@
 
 # 🧻 [API Experience Website](https://osynic-osuapi.deno.dev/)
 
-[![OsynicOsuapiEN.png](https://s2.loli.net/2025/05/15/qlgvPVuZhM5Gcod.png)](https://osynic-osuapi.deno.dev/)
+[![OSUAPIV1EN.png](https://s2.loli.net/2025/11/05/qTHoNL69icrlJgA.png)](https://osynic-osuapi.deno.dev/)
 
 # ✨ Features
 
