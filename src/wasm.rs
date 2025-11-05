@@ -11,7 +11,7 @@ pub use crate::v2::interface::{
     beatmaps::IBeatmaps, beatmapsets::IBeatmapsets, changelog::IChangelog, chat::IChat,
     comments::IComments, events::IEvents, forum::IForum, matches::IMatches,
     multiplayer::IMultiplayer, news::INews, notifications::INotifications, oauth::IOauth,
-    ranking::IRanking, scores::IScores, search::ISearch, users::IUsers, wiki::IWiki,
+    ranking::IRanking, scores::IScores, search::ISearch, users::IUsers, wiki::IWiki, friends::IFriends,
 };
 
 pub use crate::prelude::OsynicOsuApiV1GlooClient as InnerOsynicOsuApiV1GlooClient;
@@ -97,6 +97,8 @@ use crate::v2::model::user::structs::user::User;
 use crate::v2::model::user::structs::users::Users;
 // For V2 Wiki API
 use crate::v2::model::wiki::WikiPage;
+// For V2 Friends API
+use crate::v2::model::friend::{Friend, FriendXApiVersion};
 
 // Configure console error panic hook for better debugging
 #[cfg(feature = "export")]
@@ -1495,6 +1497,30 @@ impl OsynicOsuApiV2GlooClient {
     #[wasm_bindgen(js_name = getWikiPage)]
     pub async fn get_wiki_page(&self, locale: String, path: String) -> Result<WikiPage, JsValue> {
         match self.inner.wiki.get_wiki_page(locale, path).await {
+            Ok(data) => Ok(data),
+            Err(e) => Err(JsValue::from_str(&format!("API error: {}", e))),
+        }
+    }
+
+    //////////////////////////////////////////////////////////////////////////
+    /// Friends API
+    /// - get_friends
+    /// - get_friends_x_api_version
+    //////////////////////////////////////////////////////////////////////////
+
+    /// Get Friends API
+    #[wasm_bindgen(js_name = getFriends)]
+    pub async fn get_friends(&self) -> Result<Vec<Friend>, JsValue> {
+        match self.inner.friends.get_friends().await {
+            Ok(data) => Ok(data),
+            Err(e) => Err(JsValue::from_str(&format!("API error: {}", e))),
+        }
+    }
+
+    /// Get Friends X API Version API
+    #[wasm_bindgen(js_name = getFriendsXApiVersion)]
+    pub async fn get_friends_x_api_version(&self, x_api_version: Option<String>) -> Result<Vec<FriendXApiVersion>, JsValue> {
+        match self.inner.friends.get_friends_x_api_version(x_api_version).await {
             Ok(data) => Ok(data),
             Err(e) => Err(JsValue::from_str(&format!("API error: {}", e))),
         }
