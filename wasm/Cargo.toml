@@ -1,6 +1,6 @@
 [package]
 name = "osynic-osuapi"
-version = "0.1.7"
+version = "0.1.8"
 edition = "2024"
 rust-version = "1.85.0"
 authors = [
@@ -10,6 +10,7 @@ description = "High performance, well-structured, extensible Rust osu! API clien
 keywords = ["osynic", "osu", "osuapi", "wasm"]
 categories = ["web-programming","wasm"]
 license = "MIT"
+homepage = "https://osynic-osuapi.deno.dev"
 documentation = "https://docs.rs/osynic_osuapi"
 repository = "https://github.com/osynicite/osynic_osuapi"
 
