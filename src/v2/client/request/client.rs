@@ -5,6 +5,7 @@ use super::api::chat::ReqwestChat;
 use super::api::comments::ReqwestComments;
 use super::api::events::ReqwestEvents;
 use super::api::forum::ReqwestForum;
+use super::api::friends::ReqwestFriends;
 use super::api::matches::ReqwestMatches;
 use super::api::multiplayer::ReqwestMultiplayer;
 use super::api::news::ReqwestNews;
@@ -39,6 +40,7 @@ pub struct OsynicOsuApiV2Client {
     pub scores: ReqwestScores,
     pub users: ReqwestUsers,
     pub wiki: ReqwestWiki,
+    pub friends: ReqwestFriends,
     pub o_token: Arc<RwLock<OToken>>,
     pub client: reqwest::Client,
 }
@@ -113,6 +115,10 @@ impl OsynicOsuApiV2Client {
                 o_token: o_token.clone(),
             },
             wiki: ReqwestWiki {
+                client: client.clone(),
+                o_token: o_token.clone(),
+            },
+            friends: ReqwestFriends {
                 client: client.clone(),
                 o_token: o_token.clone(),
             },
@@ -197,6 +203,10 @@ impl Default for OsynicOsuApiV2Client {
                 o_token: o_token.clone(),
             },
             wiki: ReqwestWiki {
+                client: client.clone(),
+                o_token: o_token.clone(),
+            },
+            friends: ReqwestFriends {
                 client: client.clone(),
                 o_token: o_token.clone(),
             },

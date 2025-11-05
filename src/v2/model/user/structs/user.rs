@@ -68,7 +68,7 @@ pub struct User {
     pub favourite_beatmapset_count: Option<u32>,
     pub follower_count: Option<u32>,
     pub graveyard_beatmapset_count: Option<u32>,
-    pub groups: Option<Vec<Group>>, // Assuming this is an empty array
+    pub groups: Option<Vec<Group>>,
     pub guest_beatmapset_count: Option<u32>,
     pub loved_beatmapset_count: Option<u32>,
     pub mapping_follower_count: Option<u32>,
@@ -79,7 +79,7 @@ pub struct User {
     pub previous_usernames: Option<Vec<String>>,
     pub rank_highest: Option<RankHighest>,
     pub ranked_beatmapset_count: Option<u32>,
-    pub replays_watched_counts: Option<Vec<ReplaysWatchedCount>>, // Assuming this is an empty array
+    pub replays_watched_counts: Option<Vec<ReplaysWatchedCount>>,
     pub scores_best_count: Option<u32>,
     pub scores_first_count: Option<u32>,
     pub scores_pinned_count: Option<u32>,
@@ -95,6 +95,20 @@ pub struct User {
     pub rank_istoriya: Option<RankHistory>,
     pub ranked_and_approved_beatmapset_count: Option<u32>,
     pub unranked_beatmapset_count: Option<u32>,
+    // Following fields are commented cause they are not always present
+    // pub is_admin: Option<bool>,
+    // pub is_bng: Option<bool>,
+    // pub is_full_bn: Option<bool>,
+    // pub is_gmt: Option<bool>,
+    // pub is_limited_bn: Option<bool>,
+    // pub is_moderator: Option<bool>,
+    // pub is_nat: Option<bool>,
+    // pub is_silenced: Option<bool>,
+    // pub blocks: Option<Vec<String>>,
+    // pub follow_user_mapping: Option<Vec<u32>>,
+    // pub friends: Option<Vec<Friend>>,
+    // pub unread_pm_count: Option<u32>,
+    // pub user_preferences: Option<UserPreferences>,
 }
 
 #[cfg_attr(feature = "export", derive(tsify::Tsify))]
@@ -104,3 +118,34 @@ pub struct Page {
     pub html: String,
     pub raw: String,
 }
+
+// #[cfg_attr(feature = "export", derive(tsify::Tsify))]
+// #[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
+// #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+// pub struct Friend {
+//     pub target_id: u32,
+//     pub relation_type: String,
+//     pub mutual: bool,
+// }
+
+// #[cfg_attr(feature = "export", derive(tsify::Tsify))]
+// #[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
+// #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+// pub struct UserPreferences {
+//     pub audio_autoplay: Option<bool>,
+//     pub audio_muted: Option<bool>,
+//     pub audio_volume: Option<f32>,
+//     pub beatmapset_card_size: Option<String>,
+//     pub beatmapset_download: Option<String>,
+//     pub beatmapset_show_anime_cover: Option<bool>,
+//     pub beatmapset_show_nsfw: Option<bool>,
+//     pub beatmapset_title_show_original: Option<bool>,
+//     pub comments_show_deleted: Option<bool>,
+//     pub forum_posts_show_deleted: Option<bool>,
+//     pub legacy_score_only: Option<bool>,
+//     pub profile_cover_expanded: Option<bool>,
+//     pub scoring_mode: Option<String>,
+//     pub user_list_filter: Option<String>,
+//     pub user_list_sort: Option<String>,
+//     pub user_list_view: Option<String>,
+// }

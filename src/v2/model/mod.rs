@@ -5,6 +5,7 @@ pub mod chat;
 pub mod comment;
 pub mod event;
 pub mod forum;
+pub mod friend;
 pub mod matches;
 pub mod mode;
 pub mod news;

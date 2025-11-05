@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD033 MD041 MD045 MD026 -->
 <p align="center" dir="auto">
-    <img style="height:240px;width:240px" src="https://s2.loli.net/2025/03/10/GSsjOcHqdtBkyu9.png" alt="Logo逃走啦~"/>
+    <img style="height:64px;width:64px" src="https://s2.loli.net/2025/03/10/GSsjOcHqdtBkyu9.png" alt="Logo逃走啦~"/>
 </p>
 
 <h1 align="center" tabindex="-1" class="heading-element" dir="auto">OsynicOsuapi</h1>
@@ -8,7 +8,7 @@
 <p align="center">
   <a href="https://www.rust-lang.org/" target="_blank"><img src="https://img.shields.io/badge/Rust-1.85%2B-blue"/></a>
   <a href="https://crates.io/crates/osynic_osuapi" target="_blank"><img src="https://img.shields.io/crates/v/osynic_osuapi"/></a>
-  <a href="https://docs.rs/osynic_osuapi" target="_blank"><img src="https://img.shields.io/docsrs/osynic_osuapi/0.1.5"/></a>
+  <a href="https://docs.rs/osynic_osuapi" target="_blank"><img src="https://img.shields.io/docsrs/osynic_osuapi/0.1.6"/></a>
   <a href="https://www.npmjs.com/package/@osynicite/osynic-osuapi" target="_blank"><img src="https://img.shields.io/npm/v/@osynicite/osynic-osuapi"/></a>
   <a href="https://www.npmjs.com/package/@osynicite/osynic-osuapi" target="_blank"><img src="https://img.shields.io/npm/dm/@osynicite/osynic-osuapi"/></a>
   <a href="https://osynic-osuapi.deno.dev" target="_blank"><img src="https://img.shields.io/badge/Deno-white?logo=deno&logoColor=black"/></a>
@@ -104,11 +104,11 @@ API_KEY="你的api_key"
 
 ```toml
 [dependencies]
-osynic_osuapi = "0.1.5"
-dotenvy = "0.15"  # 用于读取 .env 文件
+osynic_osuapi = "0.1.6"
+dotenvy = "0.15.7"  # 用于读取 .env 文件
 
 # WASM 环境配置（可选）
-# osynic_osuapi = { version = "0.1.5", default-features = false, features = ["v1", "v2", "wasm"] }
+# osynic_osuapi = { version = "0.1.6", default-features = false, features = ["v1", "v2", "wasm"] }
 ```
 
 > **💡 特性说明**：
@@ -233,6 +233,7 @@ async fn main() -> Result<()> {
 | Scores         | 1       | 1 ✅              | 成绩API     | `scores`        |
 | Users          | 7       | 7 ✅              | 用户API     | `users`         |
 | Wiki           | 1       | 1 ✅              | Wiki API    | `wiki`          |
+| Friends        | 2       | 2 ✅              | 好友API     | `friends`       |
 
 ### [Authentication](https://osu.ppy.sh/docs/index.html#authentication)
 
@@ -260,15 +261,15 @@ async fn main() -> Result<()> {
 
 ### [Beatmapsets](https://osu.ppy.sh/docs/index.html#beatmapsets)
 
-| API                                   | 支持        | 备注                    | 示例名  |
-| ------------------------------------- | ----------- | ----------------------- | ------- |
-| /get_beatmapsets_discussions_posts    | 🈳(不稳定接口) | 获取铺面集讨论区发布    | `bsdpg` |
-| /get_beatmapsets_discussions_vote     | 🈳(不稳定接口) | 获取铺面集讨论区投票    | `bsdvg` |
-| /get_beatmapsets_discussions          | 🈳(不稳定接口) | 获取铺面集讨论区        | `bsdg`  |
-| /search                               | ✅           | 搜索谱面集              | `bss`   |
-| /lookup                               | 🈳(文档不明)  | 查阅谱面集              | `bsl`   |
-| /get_beatmapset                       | ✅           | 获取谱面集              | `bsg`   |
-| /download                             | ❌           | 下载谱面集（lazer）     | `bsd`   |
+| API                                | 支持          | 备注                 | 示例名  |
+| ---------------------------------- | ------------- | -------------------- | ------- |
+| /get_beatmapsets_discussions_posts | 🈳(不稳定接口) | 获取铺面集讨论区发布 | `bsdpg` |
+| /get_beatmapsets_discussions_vote  | 🈳(不稳定接口) | 获取铺面集讨论区投票 | `bsdvg` |
+| /get_beatmapsets_discussions       | 🈳(不稳定接口) | 获取铺面集讨论区     | `bsdg`  |
+| /search                            | ✅             | 搜索谱面集           | `bss`   |
+| /lookup                            | 🈳(文档不明)   | 查阅谱面集           | `bsl`   |
+| /get_beatmapset                    | ✅             | 获取谱面集           | `bsg`   |
+| /download                          | ❌             | 下载谱面集（lazer）  | `bsd`   |
 
 ### [Changelog](https://osu.ppy.sh/docs/index.html#changelog)
 
@@ -392,6 +393,13 @@ async fn main() -> Result<()> {
 | API            | 支持 | 备注         | 示例名 |
 | -------------- | ---- | ------------ | ------ |
 | /get_wiki_page | ✅    | 获取Wiki页面 | `wiki` |
+
+### [Friends](https://osu.ppy.sh/docs/index.html#get-apiv2friends)
+
+| API                        | 支持 | 备注                        | 示例名 |
+| -------------------------- | ---- | --------------------------- | ------ |
+| /get_friends               | ✅    | 获取好友列表                | `fg`   |
+| /get_friends_x_api_version | ✅    | 获取好友列表（指定API版本） | `fgx`  |
 
 # ❤️ 鸣谢
 

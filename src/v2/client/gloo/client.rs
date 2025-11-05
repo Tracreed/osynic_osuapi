@@ -5,6 +5,7 @@ use super::api::chat::GlooChat;
 use super::api::comments::GlooComments;
 use super::api::events::GlooEvents;
 use super::api::forum::GlooForum;
+use super::api::friends::GlooFriends;
 use super::api::matches::GlooMatches;
 use super::api::multiplayer::GlooMultiplayer;
 use super::api::news::GlooNews;
@@ -62,6 +63,8 @@ pub struct OsynicOsuApiV2GlooClient {
     pub users: GlooUsers,
     #[serde(skip)]
     pub wiki: GlooWiki,
+    #[serde(skip)]
+    pub friends: GlooFriends,
     #[serde(
         serialize_with = "serialize_arc_mutex_o_token",
         deserialize_with = "deserialize_arc_mutex_o_token"
@@ -147,6 +150,10 @@ impl OsynicOsuApiV2GlooClient {
                 proxy_url: proxy_url.clone(),
             },
             wiki: GlooWiki {
+                o_token: o_token.clone(),
+                proxy_url: proxy_url.clone(),
+            },
+            friends: GlooFriends {
                 o_token: o_token.clone(),
                 proxy_url: proxy_url.clone(),
             },
@@ -238,6 +245,10 @@ impl Default for OsynicOsuApiV2GlooClient {
                 proxy_url: proxy_url.clone(),
             },
             wiki: GlooWiki {
+                o_token: o_token.clone(),
+                proxy_url: proxy_url.clone(),
+            },
+            friends: GlooFriends {
                 o_token: o_token.clone(),
                 proxy_url: proxy_url.clone(),
             },

@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD033 MD041 MD045 MD026 -->
 <p align="center" dir="auto">
-    <img style="height:240px;width:240px" src="https://s2.loli.net/2025/03/10/GSsjOcHqdtBkyu9.png" alt="Logo逃走啦~"/>
+    <img style="height:64px;width:64px" src="https://s2.loli.net/2025/03/10/GSsjOcHqdtBkyu9.png" alt="Logo逃走啦~"/>
 </p>
 
 <h1 align="center" tabindex="-1" class="heading-element" dir="auto">OsynicOsuapi</h1>
@@ -252,6 +252,7 @@ const calcPassRate = (p: string, pa: string) => ((parseInt(pa) / parseInt(p)) * 
 | Scores         | ✅ 1/1                     | 成绩 API            |
 | Users          | ✅ 7/7                     | 用户 API            |
 | Wiki           | ✅ 1/1                     | Wiki API            |
+| Friends       | ✅ 2/2                     | 好友 API            |
 
 > 更多详细信息请查看主项目的 [API 检查表](https://github.com/osynicite/osynic_osuapi#-api检查表)
 

@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD033 MD041 MD045 MD026-->
 <p align="center" dir="auto">
-    <img style="height:240px;width:240px" src="https://s2.loli.net/2025/03/10/GSsjOcHqdtBkyu9.png" alt="logo"/>
+    <img style="height:64px;width:64px" src="https://s2.loli.net/2025/03/10/GSsjOcHqdtBkyu9.png" alt="logo"/>
 </p>
 
 <h1 align="center" tabindex="-1" class="heading-element" dir="auto">OsynicOsuapi</h1>
@@ -8,7 +8,7 @@
 <p align="center">
   <a href="https://www.rust-lang.org/" target="_blank"><img src="https://img.shields.io/badge/Rust-1.85%2B-blue"/></a>
   <a href="https://crates.io/crates/osynic_osuapi" target="_blank"><img src="https://img.shields.io/crates/v/osynic_osuapi"/></a>
-  <a href="https://docs.rs/osynic_osuapi" target="_blank"><img src="https://img.shields.io/docsrs/osynic_osuapi/0.1.5"/></a>
+  <a href="https://docs.rs/osynic_osuapi" target="_blank"><img src="https://img.shields.io/docsrs/osynic_osuapi/0.1.6"/></a>
   <a href="https://www.npmjs.com/package/@osynicite/osynic-osuapi" target="_blank"><img src="https://img.shields.io/npm/v/@osynicite/osynic-osuapi"/></a>
   <a href="https://www.npmjs.com/package/@osynicite/osynic-osuapi" target="_blank"><img src="https://img.shields.io/npm/dm/@osynicite/osynic-osuapi"/></a>
   <a href="https://osynic-osuapi.deno.dev" target="_blank"><img src="https://img.shields.io/badge/Deno-white?logo=deno&logoColor=black"/></a>
@@ -104,11 +104,11 @@ Add dependencies to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-osynic_osuapi = "0.1.5"
+osynic_osuapi = "0.1.6"
 dotenvy = "0.15"  # For reading .env files
 
 # WASM Environment Configuration (Optional)
-# osynic_osuapi = { version = "0.1.5", default-features = false, features = ["v1", "v2", "wasm"] }
+# osynic_osuapi = { version = "0.1.6", default-features = false, features = ["v1", "v2", "wasm"] }
 ```
 
 > **💡 Feature Description**:
@@ -233,6 +233,7 @@ Interface modules can be found in `src/v2/interface`, with corresponding impleme
 | Scores         | 1          | 1 ✅              | Scores API        | `scores`        |
 | Users          | 7          | 7 ✅              | Users API         | `users`         |
 | Wiki           | 1          | 1 ✅              | Wiki API          | `wiki`          |
+| Friends        | 2          | 2 ✅              | Friends API       | `friends`       |
 
 ### [Authentication](https://osu.ppy.sh/docs/index.html#authentication)
 
@@ -392,6 +393,13 @@ Interface modules can be found in `src/v2/interface`, with corresponding impleme
 | API            | Support | Note          | Example Name |
 | -------------- | ------- | ------------- | ------------ |
 | /get_wiki_page | ✅       | Get Wiki page | `wiki`       |
+
+### [Friends](https://osu.ppy.sh/docs/index.html#get-apiv2friends)
+
+| API                        | Support | Note                                    | Example Name |
+| -------------------------- | ------- | --------------------------------------- | ------------ |
+| /get_friends               | ✅       | Get friends list                        | `fg`         |
+| /get_friends_x_api_version | ✅       | Get friends list (specific API version) | `fgx`        |
 
 # ❤️ Acknowledgements
 
