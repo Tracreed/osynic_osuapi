@@ -40,10 +40,9 @@ fn main() {
     let position = 16767;
     let position = 51922;
     let position = 47965;
+    let position = 379610;
 
-    let poison = 2739;
-
-    let poison = 266627;
+    let poison = 2739; // ?
 
     let range = 1000;
     // 检查文本长度是否足够

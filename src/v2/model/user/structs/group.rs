@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 #[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Group {
-    colour: String,
+    colour: Option<String>,
     has_listing: bool,
     has_playmodes: bool,
     id: u32,

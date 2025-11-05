@@ -8,7 +8,7 @@
 <p align="center">
   <a href="https://www.rust-lang.org/" target="_blank"><img src="https://img.shields.io/badge/Rust-1.85%2B-blue"/></a>
   <a href="https://crates.io/crates/osynic_osuapi" target="_blank"><img src="https://img.shields.io/crates/v/osynic_osuapi"/></a>
-  <a href="https://docs.rs/osynic_osuapi" target="_blank"><img src="https://img.shields.io/docsrs/osynic_osuapi/0.1.7"/></a>
+  <a href="https://docs.rs/osynic_osuapi" target="_blank"><img src="https://img.shields.io/docsrs/osynic_osuapi/0.1.8"/></a>
   <a href="https://www.npmjs.com/package/@osynicite/osynic-osuapi" target="_blank"><img src="https://img.shields.io/npm/v/@osynicite/osynic-osuapi"/></a>
   <a href="https://www.npmjs.com/package/@osynicite/osynic-osuapi" target="_blank"><img src="https://img.shields.io/npm/dm/@osynicite/osynic-osuapi"/></a>
   <a href="https://osynic-osuapi.deno.dev" target="_blank"><img src="https://img.shields.io/badge/Deno-white?logo=deno&logoColor=black"/></a>
@@ -104,11 +104,11 @@ API_KEY="你的api_key"
 
 ```toml
 [dependencies]
-osynic_osuapi = "0.1.7"
+osynic_osuapi = "0.1.8"
 dotenvy = "0.15.7"  # 用于读取 .env 文件
 
 # WASM 环境配置（可选）
-# osynic_osuapi = { version = "0.1.7", default-features = false, features = ["v1", "v2", "wasm"] }
+# osynic_osuapi = { version = "0.1.8", default-features = false, features = ["v1", "v2", "wasm"] }
 ```
 
 > **💡 特性说明**：
