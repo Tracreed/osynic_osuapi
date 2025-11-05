@@ -9,9 +9,9 @@ pub use crate::v1::interface::{
 #[cfg(feature = "v2")]
 pub use crate::v2::interface::{
     beatmaps::IBeatmaps, beatmapsets::IBeatmapsets, changelog::IChangelog, chat::IChat,
-    comments::IComments, events::IEvents, forum::IForum, matches::IMatches,
+    comments::IComments, events::IEvents, forum::IForum, friends::IFriends, matches::IMatches,
     multiplayer::IMultiplayer, news::INews, notifications::INotifications, oauth::IOauth,
-    ranking::IRanking, scores::IScores, search::ISearch, users::IUsers, wiki::IWiki, friends::IFriends,
+    ranking::IRanking, scores::IScores, search::ISearch, users::IUsers, wiki::IWiki,
 };
 
 pub use crate::prelude::OsynicOsuApiV1GlooClient as InnerOsynicOsuApiV1GlooClient;
@@ -1519,8 +1519,16 @@ impl OsynicOsuApiV2GlooClient {
 
     /// Get Friends X API Version API
     #[wasm_bindgen(js_name = getFriendsXApiVersion)]
-    pub async fn get_friends_x_api_version(&self, x_api_version: Option<String>) -> Result<Vec<FriendXApiVersion>, JsValue> {
-        match self.inner.friends.get_friends_x_api_version(x_api_version).await {
+    pub async fn get_friends_x_api_version(
+        &self,
+        x_api_version: Option<String>,
+    ) -> Result<Vec<FriendXApiVersion>, JsValue> {
+        match self
+            .inner
+            .friends
+            .get_friends_x_api_version(x_api_version)
+            .await
+        {
             Ok(data) => Ok(data),
             Err(e) => Err(JsValue::from_str(&format!("API error: {}", e))),
         }

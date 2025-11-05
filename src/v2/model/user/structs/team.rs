@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 #[cfg_attr(feature = "export", tsify(into_wasm_abi, from_wasm_abi))]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Team {
-    pub flag_url: String,
+    pub flag_url: Option<String>,
     pub id: u64,
     pub name: String,
     pub short_name: String,

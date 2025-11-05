@@ -15,6 +15,7 @@ pub struct Statistics {
     pub country_rank: Option<u32>,
     pub level: Level,
     pub global_rank: Option<u32>,
+    pub global_rank_percent: Option<f64>,
     pub global_rank_exp: Option<u32>,
     pub pp: f64,
     pub pp_exp: Option<f64>,

@@ -19,9 +19,9 @@ pub use crate::v1::interface::{
 #[cfg(feature = "v2")]
 pub use crate::v2::interface::{
     beatmaps::IBeatmaps, beatmapsets::IBeatmapsets, changelog::IChangelog, chat::IChat,
-    comments::IComments, events::IEvents, forum::IForum, matches::IMatches,
+    comments::IComments, events::IEvents, forum::IForum, friends::IFriends, matches::IMatches,
     multiplayer::IMultiplayer, news::INews, notifications::INotifications, oauth::IOauth,
-    ranking::IRanking, scores::IScores, search::ISearch, users::IUsers, wiki::IWiki, friends::IFriends,
+    ranking::IRanking, scores::IScores, search::ISearch, users::IUsers, wiki::IWiki,
 };
 
 #[cfg(feature = "v1")]

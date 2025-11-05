@@ -12,5 +12,5 @@ pub struct Group {
     is_probationary: bool,
     name: String,
     short_name: String,
-    playmodes: Option<Vec<String>>, // 使用 Option 来表示可能为 null 的字段
+    playmodes: Option<Vec<String>>,
 }
