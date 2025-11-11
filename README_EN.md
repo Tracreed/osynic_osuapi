@@ -11,11 +11,11 @@
   <a href="https://docs.rs/osynic_osuapi" target="_blank"><img src="https://img.shields.io/docsrs/osynic_osuapi/0.1.8"/></a>
   <a href="https://www.npmjs.com/package/@osynicite/osynic-osuapi" target="_blank"><img src="https://img.shields.io/npm/v/@osynicite/osynic-osuapi"/></a>
   <a href="https://www.npmjs.com/package/@osynicite/osynic-osuapi" target="_blank"><img src="https://img.shields.io/npm/dm/@osynicite/osynic-osuapi"/></a>
+  <a href="https://hakochest.github.io/osynic-osuapi/" target="_blank"><img src="https://img.shields.io/badge/Typedoc-Documentation-blue"/></a>
   <a href="https://osynic-osuapi.deno.dev" target="_blank"><img src="https://img.shields.io/badge/Deno-white?logo=deno&logoColor=black"/></a>
   <a href="https://github.com/osynicite/osynic_osuapi" target="_blank"><img src="https://img.shields.io/badge/License-MIT-green.svg"/></a>
   <a href="https://discord.gg/DRnZSES3BC" target="_blank"><img src="https://img.shields.io/badge/chat-discord-7289da.svg"/></a>
   <a href="https://github.com/osynicite" target="_blank"><img src="https://img.shields.io/badge/buy%20me-a%20coffee-orange.svg?style=flat-square"/></a>
-
 </p>
 
 <p align="center">

@@ -11,7 +11,7 @@ keywords = ["osynic", "osu", "osuapi", "wasm"]
 categories = ["web-programming","wasm"]
 license = "MIT"
 homepage = "https://osynic-osuapi.deno.dev"
-documentation = "https://docs.rs/osynic_osuapi"
+documentation = "https://hakochest.github.io/osynic-osuapi"
 repository = "https://github.com/osynicite/osynic_osuapi"
 
 [package.metadata.wasm-pack.profile.release]
