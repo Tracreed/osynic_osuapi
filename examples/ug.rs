@@ -18,7 +18,8 @@ async fn main() -> Result<()> {
     });
     let user = client
         .users
-        .get_user_by_username("Islatri", None, None)
+        // .get_user_by_username("Islatri", None, None)
+        .get_user(2841009, None, None)
         .await?;
     println!("{:?}", user);
     println!("osu_account_id: {}", user.id);

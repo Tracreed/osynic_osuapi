@@ -117,7 +117,6 @@ pub fn main() {
 /// - get_scores
 /// - get_replay
 //////////////////////////////////////////////////////////////////////////
-
 /// WASM wrapper for OsynicOsuApiV1GlooClient
 #[wasm_bindgen]
 pub struct OsynicOsuApiV1GlooClient {
@@ -219,7 +218,6 @@ impl OsynicOsuApiV1GlooClient {
 //////////////////////////////////////////////////////////////////////////
 /// OsynicOsuApiV2GlooClient
 //////////////////////////////////////////////////////////////////////////
-
 /// WASM wrapper for OsynicOsuApiV2GlooClient
 #[wasm_bindgen]
 pub struct OsynicOsuApiV2GlooClient {
@@ -248,7 +246,6 @@ impl OsynicOsuApiV2GlooClient {
     /// - refresh_token
     /// - revoke_current_token
     //////////////////////////////////////////////////////////////////////////
-
     /// Get Token With Code API
     #[wasm_bindgen(js_name = getTokenWithCode)]
     pub async fn get_token_with_code(
@@ -328,7 +325,6 @@ impl OsynicOsuApiV2GlooClient {
     /// - get_user_score
     /// - get_user_scoress_in_beatmap
     //////////////////////////////////////////////////////////////////////////
-
     /// Get Beatmap Packs API
     #[wasm_bindgen(js_name = getBeatmapPacks)]
     pub async fn get_beatmap_packs(
@@ -506,7 +502,6 @@ impl OsynicOsuApiV2GlooClient {
     /// - get_beatmapset
     /// - download_beatmapset
     //////////////////////////////////////////////////////////////////////////
-
     /// Search Beatmapsets API
     #[wasm_bindgen(js_name = searchBeatmapsets)]
     pub async fn search_beatmapsets(
@@ -543,7 +538,6 @@ impl OsynicOsuApiV2GlooClient {
     /// - get_changelog_listing
     /// - lookup_changelog_build
     //////////////////////////////////////////////////////////////////////////
-
     /// Get Changelog Build API
     #[wasm_bindgen(js_name = getChangelogBuild)]
     pub async fn get_changelog_build(
@@ -616,7 +610,6 @@ impl OsynicOsuApiV2GlooClient {
     /// - create_channel
     /// - get_channel
     //////////////////////////////////////////////////////////////////////////
-
     /// Chat Keepalive API
     #[wasm_bindgen(js_name = chatKeepalive)]
     pub async fn chat_keepalive(
@@ -789,7 +782,6 @@ impl OsynicOsuApiV2GlooClient {
     /// - add_comment_vote
     /// - remove_comment_vote
     //////////////////////////////////////////////////////////////////////////
-
     /// Get Comments API
     #[wasm_bindgen(js_name = getComments)]
     pub async fn get_comments(
@@ -892,7 +884,6 @@ impl OsynicOsuApiV2GlooClient {
     /// Events API
     /// - get_events
     //////////////////////////////////////////////////////////////////////////
-
     /// Get Events API
     #[wasm_bindgen(js_name = getEvents)]
     pub async fn get_events(
@@ -917,7 +908,6 @@ impl OsynicOsuApiV2GlooClient {
     /// - get_forum_listing
     /// - get_forum_and_topic
     //////////////////////////////////////////////////////////////////////////
-
     /// Reply Topic API
     #[wasm_bindgen(js_name = replyTopic)]
     pub async fn reply_topic(&self, topic: String, body: String) -> Result<ForumPost, JsValue> {
@@ -1028,7 +1018,6 @@ impl OsynicOsuApiV2GlooClient {
     /// Home API
     /// - search
     //////////////////////////////////////////////////////////////////////////
-
     /// Search API
     #[wasm_bindgen(js_name = search)]
     pub async fn search(
@@ -1048,7 +1037,6 @@ impl OsynicOsuApiV2GlooClient {
     /// - get_matches_listing
     /// - get_match
     //////////////////////////////////////////////////////////////////////////
-
     /// Get Matches Listing API
     #[wasm_bindgen(js_name = getMatchesListing)]
     pub async fn get_matches_listing(
@@ -1095,7 +1083,6 @@ impl OsynicOsuApiV2GlooClient {
     /// - get_score_in_multiplayer
     /// - get_multiplayer_rooms
     //////////////////////////////////////////////////////////////////////////
-
     /// Get User High Score API
     #[wasm_bindgen(js_name = getUserHighScore)]
     pub async fn get_user_high_score(
@@ -1181,7 +1168,6 @@ impl OsynicOsuApiV2GlooClient {
     /// - get_news_listing
     /// - get_news_post
     //////////////////////////////////////////////////////////////////////////
-
     /// Get News Listing API
     #[wasm_bindgen(js_name = getNewsListing)]
     pub async fn get_news_listing(
@@ -1251,7 +1237,6 @@ impl OsynicOsuApiV2GlooClient {
     /// - get_kudosu_ranking
     /// - get_spotlights
     //////////////////////////////////////////////////////////////////////////
-
     /// Get Kudosu Ranking API
     #[wasm_bindgen(js_name = getKudosuRanking)]
     pub async fn get_kudosu_ranking(&self, page: Option<u32>) -> Result<KudosuRankings, JsValue> {
@@ -1305,7 +1290,6 @@ impl OsynicOsuApiV2GlooClient {
     /// Scores API
     /// - get_scores
     //////////////////////////////////////////////////////////////////////////
-
     /// Get Scores API
     #[wasm_bindgen(js_name = getScores)]
     pub async fn get_scores(
@@ -1330,7 +1314,6 @@ impl OsynicOsuApiV2GlooClient {
     /// - get_user_by_username
     /// - get_users
     //////////////////////////////////////////////////////////////////////////
-
     /// Get Own Data API
     #[wasm_bindgen(js_name = getOwnData)]
     pub async fn get_own_data(
@@ -1492,7 +1475,6 @@ impl OsynicOsuApiV2GlooClient {
     /// Wiki API
     /// - get_wiki_page
     //////////////////////////////////////////////////////////////////////////
-
     /// Get Wiki Page API
     #[wasm_bindgen(js_name = getWikiPage)]
     pub async fn get_wiki_page(&self, locale: String, path: String) -> Result<WikiPage, JsValue> {
@@ -1507,7 +1489,6 @@ impl OsynicOsuApiV2GlooClient {
     /// - get_friends
     /// - get_friends_x_api_version
     //////////////////////////////////////////////////////////////////////////
-
     /// Get Friends API
     #[wasm_bindgen(js_name = getFriends)]
     pub async fn get_friends(&self) -> Result<Vec<Friend>, JsValue> {

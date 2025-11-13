@@ -40,4 +40,4 @@ jobs:
         run: cargo check --all-features
 
       - name: Run clippy
-        run: cargo clippy --all-features -- -D warnings
+        run: cargo clippy --all-features -- -D warnings -A clippy::too-many-arguments

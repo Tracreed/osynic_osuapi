@@ -2,6 +2,8 @@
 
 use crate::v2::model::user::enums::playstyle::Playstyle;
 use crate::v2::model::user::enums::profile_order::ProfileOrder;
+use crate::v2::model::user::structs::badge::Badge;
+use crate::v2::model::user::structs::banner::Banner;
 use crate::v2::model::user::structs::country::Country;
 use crate::v2::model::user::structs::cover::Cover;
 use crate::v2::model::user::structs::daily_challenge_user_stats::DailyChallengeUserStats;
@@ -14,6 +16,7 @@ use crate::v2::model::user::structs::replays_watched_count::ReplaysWatchedCount;
 use crate::v2::model::user::structs::statistics::Statistics;
 use crate::v2::model::user::structs::statistics_rulesets::StatisticsRulesets;
 use crate::v2::model::user::structs::team::Team;
+use crate::v2::model::user::structs::user_account_history::UserAccountHistory;
 use crate::v2::model::user::structs::user_achievements::UserAchievements;
 use serde::{Deserialize, Serialize};
 
@@ -58,10 +61,10 @@ pub struct User {
     pub cover: Option<Cover>,
     pub is_restricted: Option<bool>,
     pub kudosu: Option<Kudosu>,
-    pub account_history: Option<Vec<String>>, // Assuming this is an empty array
-    pub active_tournament_banner: Option<String>,
-    pub active_tournament_banners: Option<Vec<String>>, // Assuming this is an empty array
-    pub badges: Option<Vec<String>>,                    // Assuming this is an empty array
+    pub account_history: Option<Vec<UserAccountHistory>>,
+    pub active_tournament_banner: Option<Banner>,
+    pub active_tournament_banners: Option<Vec<Banner>>,
+    pub badges: Option<Vec<Badge>>,
     pub beatmap_playcounts_count: Option<u32>,
     pub comments_count: Option<u32>,
     pub daily_challenge_user_stats: Option<DailyChallengeUserStats>,

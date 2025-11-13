@@ -61,7 +61,7 @@ pub struct GradeCounts {
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Rank {
     pub global: Option<u32>,
-    pub country: u32,
+    pub country: Option<u32>,
 }
 
 #[cfg_attr(feature = "export", derive(tsify::Tsify))]

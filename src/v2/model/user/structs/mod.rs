@@ -1,5 +1,7 @@
 // src/structs/mod.rs
 
+pub mod badge;
+pub mod banner;
 pub mod country;
 pub mod cover;
 pub mod daily_challenge_user_stats;
@@ -14,6 +16,7 @@ pub mod statistics;
 pub mod statistics_rulesets;
 pub mod team;
 pub mod user;
+pub mod user_account_history;
 pub mod user_achievements;
 
 pub mod users;
